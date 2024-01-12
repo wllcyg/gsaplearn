@@ -26,11 +26,16 @@ const GsapIndex = () => {
         gsap.fromTo(".blue", {x: 20}, {rotation: 360, x: 400, duration: 1, delay: 3});
     }
     function timeLine() {
-
+        let tl = gsap.timeline();
+        tl
+            .to(".box1", {rotation: 360, x: 100, duration: 1, delay: 1})
+            .to(".box2", {rotation: 360, x: 100, duration: 1, delay: 2})
+            .to(".box3", {rotation: 360, x: 100, duration: 1, delay: 3},1);
     }
     useEffect(() => {
         return () => {
-            baseLine();// 使用基础的动画
+            // baseLine();// 使用基础的动画
+            timeLine(); // 使用时间轴
         };
     }, []);
 
